@@ -24,6 +24,7 @@
     <ProjectGuid>{ff4fa950-7f7f-4998-9448-0a243f171536}</ProjectGuid>
     <RootNamespace>Ruffini</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>SimplePolynomialParallel_Evaluator</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
