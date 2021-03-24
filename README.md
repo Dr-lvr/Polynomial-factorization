@@ -1,5 +1,5 @@
 # Math_TeacherGoneCrazy
-Study of a simple polynomial factorization problem in parallel computing to be published on the Codewars website 
+Study of a simple polynomial factorization problem in parallel computing
 
 #DESCRIPTION
 
