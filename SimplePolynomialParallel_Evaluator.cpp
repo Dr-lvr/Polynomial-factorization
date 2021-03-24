@@ -77,6 +77,5 @@ auto factorization(std::string expression)->std::string{
 auto main()->int{
 
 	simpleParser(polynomialGenerator());
-    //std::cout << "x^3+3x^2+4x+2" << std::endl;
 	std::cin.ignore();
 }
