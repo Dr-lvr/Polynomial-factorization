@@ -91,7 +91,6 @@ auto parse_inMonomi(std::string expression)->std::deque<std::string> {
 		[](std::string a, std::string b) {
 		return	stoi(a.substr(a.find_first_of('^'), a.size() - 1)) > 
 				stoi(b.substr(b.find_first_of('^'), b.size() - 1)); };
-
 	std::sort(parsedExpression.front().begin(), parsedExpression.front().end(), gradePredicate);
 	std::cout << "----------------" << std::endl;
 	for (auto& cc : parsedExpression) {
