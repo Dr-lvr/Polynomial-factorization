@@ -5,6 +5,7 @@
 #include <string>
 #include <random>
 #include <deque>
+#include <regex>
 
 /// <summary>
 /// ---------> PROBLEM GENERATOR
@@ -88,10 +89,17 @@ auto parse_inMonomi(std::string expression)->std::deque<std::string> {
 		}
 	}
 	auto gradePredicate =
-		[](std::string a, std::string b) {
-		return	stoi(a.substr(a.find_first_of('^'), a.size() - 1)) > 
-				stoi(b.substr(b.find_first_of('^'), b.size() - 1)); };
-	std::sort(parsedExpression.front().begin(), parsedExpression.front().end(), gradePredicate);
+		[](std::string& a, std::string& b) {
+		std::smatch firstMatch;
+		std::smatch secondMatch;
+		std::regex pattern ("[^\^]*$");
+		std::regex_search(a, firstMatch, pattern);
+		std::regex_search(b, secondMatch, pattern);
+		return	
+			std::stoi(firstMatch.str()) >
+			std::stoi(secondMatch.str());
+	};
+	std::sort(parsedExpression.begin(), parsedExpression.end(), gradePredicate);
 	std::cout << "----------------" << std::endl;
 	for (auto& cc : parsedExpression) {
 		std::cout << cc << std::endl;
@@ -117,7 +125,7 @@ auto resolution(std::string expression)->std::string{
 /// <returns></returns>
 auto main()->int{
 
-	std::cout << resolution("+24x^3-26x^2+x^1-1x^0;+24x^3-26x^2+x^1-1x^0;+24x^3-26x^2+x^1-1x^0;") << std::endl;
+	std::cout << resolution("+24x^3-26x^2+9x^1-1x^0;") << std::endl;
 
 	parseCompleteString(polynomialGenerator());
 	std::cin.ignore();
