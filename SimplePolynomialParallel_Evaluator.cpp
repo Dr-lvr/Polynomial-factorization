@@ -102,7 +102,7 @@ auto parse_inMonomi(std::string expression)->std::deque<std::string> {
 auto resolution(std::string expression)->std::string{
 	std::vector<std::string> expressionVector = parseCompleteString(expression);
 	for (auto& cc : expressionVector) {
-		factorization(cc);
+		parse_inMonomi(cc);
 	}
 	return "";
 }
