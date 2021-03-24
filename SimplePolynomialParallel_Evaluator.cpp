@@ -50,7 +50,7 @@ auto polynomialGenerator()->std::string{
 /// </summary>
 /// <param name="expression"></param>
 /// <returns></returns>
-auto simpleParser(std::string expression)->std::vector<std::string>{
+auto parseCompleteString(std::string expression)->std::vector<std::string>{
 	//expressions parser : vector of expressions
 	std::stringstream streamObj;
 	std::vector<std::string> expressionVector;
@@ -73,7 +73,7 @@ auto simpleParser(std::string expression)->std::vector<std::string>{
 /// </summary>
 /// <param name=""></param>
 /// <returns></returns>
-auto parseExp_inMonomi(std::string expression)->std::deque<std::string> {
+auto factorization(std::string expression)->std::deque<std::string> {
 	std::stringstream streamObj;
 	std::deque<std::string> parsedExpression;
 	std::reverse(expression.begin(), expression.end());
@@ -100,9 +100,9 @@ auto parseExp_inMonomi(std::string expression)->std::deque<std::string> {
 /// <param name="_Right"></param>
 /// <returns></returns>
 auto resolution(std::string expression)->std::string{
-	std::vector<std::string> expressionVector = simpleParser(expression);
+	std::vector<std::string> expressionVector = parseCompleteString(expression);
 	for (auto& cc : expressionVector) {
-		parseExp_inMonomi(cc);
+		factorization(cc);
 	}
 	return "";
 }
@@ -114,6 +114,6 @@ auto main()->int{
 
 	std::cout << resolution("+24x^3-26x^2+x^1-1x^0;+24x^3-26x^2+x^1-1x^0;+24x^3-26x^2+x^1-1x^0;") << std::endl;
 
-	simpleParser(polynomialGenerator());
+	parseCompleteString(polynomialGenerator());
 	std::cin.ignore();
 }
