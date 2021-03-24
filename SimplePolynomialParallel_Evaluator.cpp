@@ -16,7 +16,7 @@ auto polynomialGenerator()->std::string{
 	std::random_device randomDevice;
 	std::mt19937 gen(randomDevice());
 	std::uniform_int_distribution<> sign(0, 1);
-	std::uniform_int_distribution<> grade(0, 5);
+	std::uniform_int_distribution<> degree(0, 5);
 	std::uniform_int_distribution<> coefficent(0, 100);
 	std::uniform_int_distribution<> expressionLength(1, 10);
 	std::uniform_int_distribution<> vectorLength(1, 100);
@@ -32,7 +32,7 @@ auto polynomialGenerator()->std::string{
 				<< operators_vMap[sign(gen)]
 				<< std::to_string(coefficent(gen))
 				<< "x^"
-				<< std::to_string(grade(gen));
+				<< std::to_string(degree(gen));
 		}
 		streamObj << ";";
 		expressionVector.push_back(streamObj.str());
@@ -74,6 +74,17 @@ auto parseCompleteString(std::string expression)->std::vector<std::string>{
 /// </summary>
 /// <param name=""></param>
 /// <returns></returns>
+auto degreePredicate =
+[](std::string& a, std::string& b) {
+	std::smatch firstMatch;
+	std::smatch secondMatch;
+	std::regex pattern("[^\^]*$");
+	std::regex_search(a, firstMatch, pattern);
+	std::regex_search(b, secondMatch, pattern);
+	return
+		std::stoi(firstMatch.str()) >
+		std::stoi(secondMatch.str());
+};
 auto parse_inMonomi(std::string expression)->std::deque<std::string> {
 	std::stringstream streamObj;
 	std::deque<std::string> parsedExpression;
@@ -88,18 +99,7 @@ auto parse_inMonomi(std::string expression)->std::deque<std::string> {
 			}
 		}
 	}
-	auto gradePredicate =
-		[](std::string& a, std::string& b) {
-		std::smatch firstMatch;
-		std::smatch secondMatch;
-		std::regex pattern ("[^\^]*$");
-		std::regex_search(a, firstMatch, pattern);
-		std::regex_search(b, secondMatch, pattern);
-		return	
-			std::stoi(firstMatch.str()) >
-			std::stoi(secondMatch.str());
-	};
-	std::sort(parsedExpression.begin(), parsedExpression.end(), gradePredicate);
+	std::sort(parsedExpression.begin(), parsedExpression.end(), degreePredicate);
 	std::cout << "----------------" << std::endl;
 	for (auto& cc : parsedExpression) {
 		std::cout << cc << std::endl;
