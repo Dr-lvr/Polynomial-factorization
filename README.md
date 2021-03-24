@@ -1,7 +1,7 @@
 # Math_TeacherGoneCrazy
 Study of a simple polynomial factorization problem in parallel computing to be published on the Codewars website 
 
-DESCRIPTION
+##DESCRIPTION
 On Friday, after the teachers' evening meeting, the math teacher went crazy.
 After drinking a few beers; talking to the chemistry and religion professors,
 he returned home and surrounded herself with ancient math books,
@@ -14,4 +14,4 @@ but tomorrow morning at the first hour you know that you will have to face the t
 and perhaps with a good gab and a clear mind you could be able to bring the teacher back to his hindsight.
 Or at least take a sufficient vote, and thus enter the legend.
 
-Constraints and assumptions
+##Constraints and assumptions
