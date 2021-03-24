@@ -4,6 +4,7 @@
 #include <ostream>
 #include <string>
 #include <random>
+#include <deque>
 
 /// <summary>
 /// ---------> PROBLEM GENERATOR
@@ -45,7 +46,7 @@ auto polynomialGenerator()->std::string{
 	return retObj.str();
 }
 /// <summary>
-/// ---------> DECODER
+/// ---------> DECODE THE BIG STRING
 /// </summary>
 /// <param name="expression"></param>
 /// <returns></returns>
@@ -67,7 +68,42 @@ auto simpleParser(std::string expression)->std::vector<std::string>{
 	}
 	return expressionVector;
 }
-auto factorization(std::string expression)->std::string{
+/// <summary>
+/// ---------> PARSE SINGLE OPERATION IN MONOMI
+/// </summary>
+/// <param name=""></param>
+/// <returns></returns>
+auto factorization(std::string expression)->std::deque<std::string> {
+	std::stringstream streamObj;
+	std::deque<std::string> parsedExpression;
+	std::reverse(expression.begin(), expression.end());
+	for (auto& c : expression) {
+		if (c != ';') {
+			streamObj << c;
+			if (c == '+' || c == '-') {
+				parsedExpression.push_front(streamObj.str());
+				std::reverse(parsedExpression.front().begin(), parsedExpression.front().end());
+				streamObj.str("");
+			}
+		}
+	}
+	std::cout << "----------------" << std::endl;
+	for (auto& cc : parsedExpression) {
+		std::cout << cc << std::endl;
+	}
+	std::cout << "----------------" << std::endl;
+	return parsedExpression;
+}
+/// <summary>
+/// ---------> COLLECT CABLES AND RESOLVE
+/// </summary>
+/// <param name="_Right"></param>
+/// <returns></returns>
+auto resolution(std::string expression)->std::string{
+	std::vector<std::string> expressionVector = simpleParser(expression);
+	for (auto& cc : expressionVector) {
+		factorization(cc);
+	}
 	return "";
 }
 /// <summary>
@@ -75,6 +111,8 @@ auto factorization(std::string expression)->std::string{
 /// </summary>
 /// <returns></returns>
 auto main()->int{
+
+	std::cout << resolution("+24x^3-26x^2+x^1-1x^0;+24x^3-26x^2+x^1-1x^0;+24x^3-26x^2+x^1-1x^0;") << std::endl;
 
 	simpleParser(polynomialGenerator());
 	std::cin.ignore();
