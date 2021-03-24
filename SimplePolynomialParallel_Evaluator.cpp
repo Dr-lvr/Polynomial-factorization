@@ -19,7 +19,7 @@ auto polynomialGenerator()->std::string{
 	std::uniform_int_distribution<> grade(0, 5);
 	std::uniform_int_distribution<> coefficent(0, 100);
 	std::uniform_int_distribution<> expressionLength(1, 10);
-	std::uniform_int_distribution<> vectorLength(1, 10);
+	std::uniform_int_distribution<> vectorLength(1, 100);
 	std::unordered_map <int, std::string> operators_vMap = {{0, "-"},{1, "+"}};
 
 	std::stringstream retObj;
@@ -125,8 +125,11 @@ auto resolution(std::string expression)->std::string{
 /// <returns></returns>
 auto main()->int{
 
+	std::cout << resolution(polynomialGenerator()) << std::endl;
+	/*
 	std::cout << resolution("+24x^3-26x^2+9x^1-1x^0;") << std::endl;
 
 	parseCompleteString(polynomialGenerator());
+	*/
 	std::cin.ignore();
 }
