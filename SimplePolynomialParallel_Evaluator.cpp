@@ -73,7 +73,7 @@ auto simpleParser(std::string expression)->std::vector<std::string>{
 /// </summary>
 /// <param name=""></param>
 /// <returns></returns>
-auto factorization(std::string expression)->std::deque<std::string> {
+auto parseExp_inMonomi(std::string expression)->std::deque<std::string> {
 	std::stringstream streamObj;
 	std::deque<std::string> parsedExpression;
 	std::reverse(expression.begin(), expression.end());
@@ -102,7 +102,7 @@ auto factorization(std::string expression)->std::deque<std::string> {
 auto resolution(std::string expression)->std::string{
 	std::vector<std::string> expressionVector = simpleParser(expression);
 	for (auto& cc : expressionVector) {
-		factorization(cc);
+		parseExp_inMonomi(cc);
 	}
 	return "";
 }
