@@ -73,7 +73,7 @@ auto parseCompleteString(std::string expression)->std::vector<std::string>{
 /// </summary>
 /// <param name=""></param>
 /// <returns></returns>
-auto factorization(std::string expression)->std::deque<std::string> {
+auto parse_inMonomi(std::string expression)->std::deque<std::string> {
 	std::stringstream streamObj;
 	std::deque<std::string> parsedExpression;
 	std::reverse(expression.begin(), expression.end());
