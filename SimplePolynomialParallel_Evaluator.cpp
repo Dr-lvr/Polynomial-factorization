@@ -9,7 +9,7 @@
 /// ---------> PROBLEM GENERATOR
 /// </summary>
 /// <returns></returns>
-std::string polynomialGenerator() {
+auto polynomialGenerator()->std::string{
 	//the math teacher : string of expressions
 	std::random_device randomDevice;
 	std::mt19937 gen(randomDevice());
@@ -49,7 +49,7 @@ std::string polynomialGenerator() {
 /// </summary>
 /// <param name="expression"></param>
 /// <returns></returns>
-std::vector<std::string> simpleParser(std::string expression) {
+auto simpleParser(std::string expression)->std::vector<std::string>{
 	//expressions parser : vector of expressions
 	std::stringstream streamObj;
 	std::vector<std::string> expressionVector;
@@ -67,14 +67,14 @@ std::vector<std::string> simpleParser(std::string expression) {
 	}
 	return expressionVector;
 }
-std::string factorization(std::string expression) {
+auto factorization(std::string expression)->std::string{
 	return "";
 }
 /// <summary>
 /// ---------> DRIVER
 /// </summary>
 /// <returns></returns>
-int main(){
+auto main()->int{
 
 	simpleParser(polynomialGenerator());
     //std::cout << "x^3+3x^2+4x+2" << std::endl;
