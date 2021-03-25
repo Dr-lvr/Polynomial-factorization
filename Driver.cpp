@@ -6,7 +6,12 @@
 /// <returns></returns>
 auto main()->int {
 
-	std::cout << resolution(polynomialGenerator()) << std::endl;
+
+
+	parse_inMonomi("+24x^3-26x^2+9x^1-1x^0;");
+
+
+	//std::cout << resolution(polynomialGenerator()) << std::endl;
 	/*
 	std::cout << resolution("+24x^3-26x^2+9x^1-1x^0;") << std::endl;
 

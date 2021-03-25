@@ -26,5 +26,11 @@
     <ClInclude Include="SimplePolynomialParallel_Evaluator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AddSimilarMonomi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseInMonomi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
