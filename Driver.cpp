@@ -13,5 +13,6 @@ auto main()->int {
 
 	parseCompleteString(polynomialGenerator());
 	*/
+
 	std::cin.ignore();
 }
