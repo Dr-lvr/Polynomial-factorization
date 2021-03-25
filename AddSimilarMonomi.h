@@ -4,7 +4,9 @@
 #include <deque>
 #include <ranges>
 #include <iostream>
+#include <algorithm>
 
+//std::regex pattern2("[^\^]*$");
 auto similarPredicate =
 [](std::string& a, std::string& b) {
 	std::smatch firstMatch, secondMatch;
@@ -27,8 +29,7 @@ auto addPredicate =
 auto add_similarMonomi(std::deque<std::string> expression)->std::deque<std::string> {
 
 	std::deque<std::string> expression2;
-	for (auto& i : expression | std::views::filter(similarPredicate) | std::views::transform(addPredicate)) {
-		std::cout << i << " *** ";
-	}
+	
+	std::accumulate();
 	return {};
 }

@@ -9,6 +9,7 @@
 #include <deque>
 #include <regex>
 
+#include "ParseInMonomi.h"
 #include "AddSimilarMonomi.h"
 #include "ProblemGen.h"
 /// <summary>
