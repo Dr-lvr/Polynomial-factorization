@@ -39,15 +39,14 @@ auto parseCompleteString(std::string expression)->std::vector<std::string> {
 /// <returns></returns>
 auto degreePredicate =
 [](std::string& a, std::string& b) {
-	std::smatch firstMatch;
-	std::smatch secondMatch;
-	std::regex pattern("[^\^]*$");
-	std::regex_search(a, firstMatch, pattern);
-	std::regex_search(b, secondMatch, pattern);
+	std::smatch firstMatch, secondMatch;
+	std::regex_search(a, firstMatch, std::regex ("[^\^]*$"));
+	std::regex_search(b, secondMatch, std::regex("[^\^]*$"));
 	return
 		std::stoi(firstMatch.str()) >
 		std::stoi(secondMatch.str());
 };
+//std::regex pattern2("^.[0-9][^x]");
 auto parse_inMonomi(std::string expression)->std::deque<std::string> {
 	std::stringstream streamObj;
 	std::deque<std::string> parsedExpression;
