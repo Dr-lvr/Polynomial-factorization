@@ -4,32 +4,25 @@
 #include <deque>
 #include <ranges>
 #include <iostream>
-#include <algorithm>
+#include <numeric>
 
-//std::regex pattern2("[^\^]*$");
-auto similarPredicate =
-[](std::string& a, std::string& b) {
-	std::smatch firstMatch, secondMatch;
+//std::regex pattern2(".+?(?=x)");
+auto pred =
+[](std::string& a) {
+	std::smatch firstMatch;
 	std::regex_search(a, firstMatch, std::regex("[^\^]*$"));
-	std::regex_search(b, secondMatch, std::regex("[^\^]*$"));
-	return 
-		std::stoi(firstMatch.str()) == 
-		std::stoi(secondMatch.str());
-};
-//std::regex pattern2("^.[0-9][^x]");
-auto addPredicate =
-[](std::string& a, std::string& b) {
-	std::smatch firstMatch, secondMatch;
-	std::regex_search(a, firstMatch, std::regex("^.[0-9][^x]"));
-	std::regex_search(b, secondMatch, std::regex("^.[0-9][^x]"));
-	return 
-		std::stoi(firstMatch.str()) > 
-		std::stoi(secondMatch.str());
+	return std::stoi(firstMatch.str()) == 2;
 };
 auto add_similarMonomi(std::deque<std::string> expression)->std::deque<std::string> {
-
-	std::deque<std::string> expression2;
-	
-	std::accumulate();
+	std::smatch firstMatch;
+	std::deque<std::string> simplifiedExpression;
+	int a = 0;
+	for (std::string ok : expression | std::views::filter(pred)) {
+		std::cout << ok << std::endl;
+		if (std::regex_search(ok, firstMatch, std::regex(".+?(?=x)"))) {
+			a += std::stoi(firstMatch.str());
+		}
+	}
+	std::cout << a << std::endl;
 	return {};
 }
