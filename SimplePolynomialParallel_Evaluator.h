@@ -43,8 +43,16 @@ auto parseCompleteString(std::string expression)->std::vector<std::string> {
 /// <returns></returns>
 auto resolution(std::string expression)->std::string {
 	std::vector<std::string> expressionVector = parseCompleteString(expression);
+	std::vector<std::deque<std::string>> simplifiedExpression;
 	for (auto& cc : expressionVector) {
-		parse_inMonomi(cc);
+		simplifiedExpression.push_back(add_similarMonomi(parse_inMonomi(cc)));
+	}
+	for (auto& cc : simplifiedExpression) {
+		std::cout << "-----> ";
+		for (auto& ch : cc) {
+			std::cout << ch;
+		}
+		std::cout << std::endl;
 	}
 	return "";
 }

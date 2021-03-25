@@ -4,7 +4,7 @@
 #include <deque>
 #include <ranges>
 #include <iostream>
-#include <numeric>
+//std::regex pattern1 ("[^\^]*$");
 //std::regex pattern2(".+?(?=x)");
 auto add_similarMonomi(std::deque<std::string> expression)->std::deque<std::string> {
 	int a = 0;
@@ -27,10 +27,8 @@ auto add_similarMonomi(std::deque<std::string> expression)->std::deque<std::stri
 					a += std::stoi(fncMatch.str());
 				}
 			}
-			streamObj
-				<< a
-				<< "x^"
-				<< i;
+			if (a >= 0) { streamObj<< "+"; }
+			streamObj << a << "x^" << i;
 			simplifiedExpression.push_back(streamObj.str());
 			streamObj.str("");
 			a = 0;
@@ -39,5 +37,5 @@ auto add_similarMonomi(std::deque<std::string> expression)->std::deque<std::stri
 	for (auto& m : simplifiedExpression) {
 		std::cout << m << std::endl;
 	}
-	return {};
+	return simplifiedExpression;
 }

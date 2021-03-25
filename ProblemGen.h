@@ -17,7 +17,7 @@ auto polynomialGenerator()->std::string {
 	std::uniform_int_distribution<> degree(0, 5);
 	std::uniform_int_distribution<> coefficent(0, 100);
 	std::uniform_int_distribution<> expressionLength(1, 10);
-	std::uniform_int_distribution<> vectorLength(1, 100);
+	std::uniform_int_distribution<> vectorLength(1, 10);
 	std::unordered_map <int, std::string> operators_vMap = { {0, "-"},{1, "+"} };
 
 	std::stringstream retObj;
