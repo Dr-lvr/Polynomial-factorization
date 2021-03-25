@@ -1,8 +1,11 @@
 #pragma once
 #include <unordered_map>
+#include <functional>
+#include <algorithm>
 #include <iostream>
 #include <sstream>
 #include <ostream>
+#include <thread>
 #include <string>
 #include <random>
 #include <ranges>
@@ -44,6 +47,30 @@ auto parseCompleteString(std::string expression)->std::vector<std::string> {
 auto resolution(std::string expression)->std::string {
 	std::vector<std::string> expressionVector = parseCompleteString(expression);
 	std::vector<std::deque<std::string>> simplifiedExpression;
+	for (auto& cc : expressionVector) {
+		simplifiedExpression.push_back(add_similarMonomi(parse_inMonomi(cc)));
+	}
+	for (auto& cc : simplifiedExpression) {
+		std::cout << "-----> ";
+		for (auto& ch : cc) {
+			std::cout << ch;
+		}
+		std::cout << std::endl;
+	}
+	return "";
+}
+
+auto parallelResolution(std::string expression)->std::string {
+	//parse string sequentially
+	std::vector<std::string> expressionVector = parseCompleteString(expression);
+
+	//result deque
+	std::vector<std::deque<std::string>> simplifiedExpression;
+	/*
+	* Declare/init thread pool
+	* Entrust work to each thread
+	* Join threads
+	*/
 	for (auto& cc : expressionVector) {
 		simplifiedExpression.push_back(add_similarMonomi(parse_inMonomi(cc)));
 	}
