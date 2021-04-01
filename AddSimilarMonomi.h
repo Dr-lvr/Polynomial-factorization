@@ -6,6 +6,11 @@
 #include <iostream>
 //std::regex pattern1 ("[^\^]*$");
 //std::regex pattern2(".+?(?=x)");
+/// <summary>
+/// ---------> ADD SIMILAR MONOMI
+/// </summary>
+/// <param name="expression"></param>
+/// <returns></returns>
 auto add_similarMonomi(std::deque<std::string> expression)->std::deque<std::string> {
 	int a = 0;
 	std::smatch fncMatch;
