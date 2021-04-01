@@ -38,7 +38,6 @@ auto parseCompleteString(std::string expression)->std::vector<std::string> {
 	}
 	return expressionVector;
 }
-
 /// <summary>
 /// ---------> COLLECT CABLES AND RESOLVE
 /// </summary>
@@ -59,14 +58,11 @@ auto resolution(std::string expression)->std::string {
 	}
 	return "";
 }
-
 auto parallelResolution(std::string expression)->std::string {
 	//parse string sequentially
 	std::vector<std::string> expressionVector = parseCompleteString(expression);
-
 	//result deque
 	std::vector<std::deque<std::string>> simplifiedExpression;
-
 	std::thread aThread;
 	/*
 	* Declare/init thread pool
@@ -74,7 +70,6 @@ auto parallelResolution(std::string expression)->std::string {
 	* Join threads
 	*/
 	for (auto& cc : expressionVector) {
-		
 		simplifiedExpression.push_back(add_similarMonomi(parse_inMonomi(cc)));
 	}
 	for (auto& cc : simplifiedExpression) {

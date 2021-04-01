@@ -4,10 +4,10 @@
 #include <deque>
 #include <ranges>
 #include <iostream>
-//std::regex pattern1 ("[^\^]*$");
-//std::regex pattern2(".+?(?=x)");
 /// <summary>
 /// ---------> ADD SIMILAR MONOMI
+/// std::regex pattern1 ("[^\^]*$");
+/// std::regex pattern2(".+?(?=x)");
 /// </summary>
 /// <param name="expression"></param>
 /// <returns></returns>
