@@ -58,26 +58,3 @@ auto resolution(std::string expression)->std::string {
 	}
 	return "";
 }
-auto parallelResolution(std::string expression)->std::string {
-	//parse string sequentially
-	std::vector<std::string> expressionVector = parseCompleteString(expression);
-	//result deque
-	std::vector<std::deque<std::string>> simplifiedExpression;
-	std::thread aThread;
-	/*
-	* Declare/init thread pool
-	* Entrust work to each thread
-	* Join threads
-	*/
-	for (auto& cc : expressionVector) {
-		simplifiedExpression.push_back(add_similarMonomi(parse_inMonomi(cc)));
-	}
-	for (auto& cc : simplifiedExpression) {
-		std::cout << "-----> ";
-		for (auto& ch : cc) {
-			std::cout << ch;
-		}
-		std::cout << std::endl;
-	}
-	return "";
-}

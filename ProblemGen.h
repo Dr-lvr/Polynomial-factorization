@@ -37,10 +37,5 @@ auto polynomialGenerator()->std::string {
 		retObj << streamObj.str();
 		streamObj.str("");
 	}
-	for (auto& cc : retObj.str()) {
-		std::cout << cc;
-	}
-	std::cout << std::endl;
-	std::cout << std::endl;
 	return retObj.str();
 }
